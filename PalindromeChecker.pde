@@ -1,3 +1,5 @@
+public String sNew = new String();
+public String noSpace = new String();
 public void setup()
 {
   String lines[] = loadStrings("palindromes.txt");
@@ -16,14 +18,27 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  reverse(word);
+  if(sNew.equals(noSpace) == true){
+    return true;
+  }
   return false;
 }
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  sNew = "";
+  noSpace = "";
+  //removes the spaces
+  for(int i = 0; i < str.length(); i++){
+    if(str.charAt(i) != ' ' && str.charAt(i) != ',' && str.charAt(i) != '!' && str.charAt(i) != '.' && str.charAt(i) != '\''){
+      noSpace = noSpace + str.substring(i,i+1);
+    }
+  }
+  noSpace = noSpace.toLowerCase();
+  //System.out.println(noSpace);
+  //reverses the word
+  for(int i = noSpace.length(); i > 0; i--){
+    sNew = sNew + noSpace.substring(i-1,i);
+  }
+    return sNew.toLowerCase();
 }
-
-
